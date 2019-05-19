@@ -13,16 +13,16 @@ SelectView.prototype.bindEvents = function () {
 };
 
 SelectView.prototype.filterAmiibos = function (amiibos) {
-  return characters = amiibos
+  return gameSerieses = amiibos
     .map(amiibo => amiibo.gameSeries)
-    .filter((character, index, characters) => characters.indexOf(character) === index);
+    .filter((gameSeries, index, gameSerieses) => gameSerieses.indexOf(gameSeries) === index);
 };
 
-SelectView.prototype.populate = function (characters) {
-  characters.forEach((character, index) => {
-    const characterOption = document.createElement('option');
-    characterOption.textContent = character
-    this.element.appendChild(characterOption)
+SelectView.prototype.populate = function (gameSerieses) {
+  gameSerieses.forEach((gameSeries, index) => {
+    const gameSeriesOption = document.createElement('option');
+    gameSeriesOption.textContent = gameSeries
+    this.element.appendChild(gameSeriesOption)
   })
 };
 
