@@ -9,6 +9,8 @@ const name = this.createAmiiboHeading()
 this.amiibosContainer.appendChild(name)
 const amiibosList = this.createAmiibosList()
 this.amiibosContainer.appendChild(amiibosList)
+const amiiboImage = this.createAmiiboImage()
+this.amiibosContainer.appendChild(amiiboImage)
   }
 
 AmiiboView.prototype.createAmiiboHeading = function () {
@@ -23,10 +25,16 @@ AmiiboView.prototype.createAmiibosList = function () {
   return amiibosList
 };
 
-AmiibosView.prototype.populateList = function (list) {
+AmiiboView.prototype.createAmiiboImage = function () {
+const amiiboImage = document.createElement('img');
+amiiboImage.src = this.amiibo.image;
+return amiiboImage
+};
 
-  const listItemHeight = document.createElement('li')
-  listItemHeight.textContent = `Game Series: ${this.amiibo.gameSeries}`
+AmiiboView.prototype.populateList = function (list) {
+
+  const listItemGameSeries = document.createElement('li')
+  listItemGameSeries.textContent = `Game Series: ${this.amiibo.gameSeries}`
   list.appendChild(listItemGameSeries)
 };
 

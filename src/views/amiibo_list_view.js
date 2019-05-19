@@ -12,10 +12,10 @@ AmiiboListView.prototype.bindEvents = function () {
   })
 };
 
-MunrosListView.prototype.render = function () {
+AmiiboListView.prototype.render = function () {
   this.amiibos.forEach((amiibo)=>{
-    const AmiiboView = new AmiiboView(this.container, amiibo)
-    AmiiboView.render()
+    const amiiboView = new AmiiboView(this.container, amiibo)
+    amiiboView.render()
   })
 };
 

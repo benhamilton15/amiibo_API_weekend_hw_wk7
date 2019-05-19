@@ -11,7 +11,7 @@ Amiibos.prototype.getData = function() {
   const request = new RequestHelper(this.url)
   request.get()
   .then((data) => {
-    this.amiibo = data
+    this.amiibos = data.amiibo
     PubSub.publish('Amiibos:all-amiibos-ready', this.amiibos)
   })
 };
