@@ -6,6 +6,13 @@ this.url = url
 this.amiibos = []
 }
 
+Amiibos.prototype.bindEvents = function () {
+  PubSub.subscribe('SelectView:change', (evt) => {
+    gameSeriesList = this.amiibos.filter(amiibo => amiibo.gameSeries === evt.detail);
+    PubSub.publish('Amiibos:selected-gameseries-ready', gameSeriesList);
+  });
+};
+
 
 Amiibos.prototype.getData = function() {
   const request = new RequestHelper(this.url)
@@ -15,5 +22,9 @@ Amiibos.prototype.getData = function() {
     PubSub.publish('Amiibos:all-amiibos-ready', this.amiibos)
   })
 };
+
+Amiibos.prototype.characters = function() {
+
+}
 
 module.exports = Amiibos

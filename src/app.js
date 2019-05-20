@@ -1,4 +1,5 @@
 const AmiiboListView = require('./views/amiibo_list_view.js')
+const AmiiboGameSeriesView = require('./views/amiibo_gameseries_view.js')
 const Amiibos = require('./models/amiibos.js')
 const SelectView = require('./views/select_view.js')
 const url = ('https://www.amiiboapi.com/api/amiibo')
@@ -16,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () =>{
     const selectView = new SelectView(selectedContainer2);
     selectView.bindEvents();
 
+    const amiiboGameSeriesView = new AmiiboGameSeriesView(selectedContainer)
+    amiiboGameSeriesView.bindEvents()
+
     const amiibos = new Amiibos(url)
+    amiibos.bindEvents()
     amiibos.getData()
   })
+

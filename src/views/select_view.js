@@ -10,6 +10,11 @@ SelectView.prototype.bindEvents = function () {
     const filteredAmiibos = this.filterAmiibos(allAmiibos)
     this.populate(filteredAmiibos)
   })
+
+  this.element.addEventListener('change', (evt) => {
+    const gameSeriesName = evt.target.value;
+    PubSub.publish('SelectView:change', gameSeriesName);
+  })
 };
 
 SelectView.prototype.filterAmiibos = function (amiibos) {

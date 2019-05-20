@@ -13,6 +13,8 @@ AmiiboListView.prototype.bindEvents = function () {
 };
 
 AmiiboListView.prototype.render = function () {
+   this.container.innerHTML = ''
+
   this.amiibos.forEach((amiibo)=>{
     const amiiboView = new AmiiboView(this.container, amiibo)
     amiiboView.render()
